@@ -1,5 +1,9 @@
 Narwhal::Application.routes.draw do
 
+  resources :presentations
+
+  root :to => "presentation#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
