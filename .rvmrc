@@ -1,0 +1,7 @@
+rvm_gemset_create_on_use_flag=1
+rvm gemset use ruby-1.9.2-p180@Narwhal
+
+# For Ubuntu 10.10 users, use this instead of above command
+# prevents using gemset ruby-1.9.2-p180@Narwhal@Narwhal
+# rvm use ruby-1.9.2-p180@Narwhal
+
