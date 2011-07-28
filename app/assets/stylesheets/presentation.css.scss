@@ -1,0 +1,159 @@
+// Place all the styles related to the presentation controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  #content {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+  }
+
+  #drawn {
+  	background: #fff !important;
+  }
+
+  #content > * {
+  }
+
+  #tool_container {
+  	left: 0;
+  	right: 0;
+  	height: 50px;
+  	min-width: 940px;
+  }
+
+  #tool_container > * {
+  	display: inline-block;
+  	vertical-align: middle;
+  	margin-right: 10px;
+  	margin-left: 10px;
+  }
+
+  .active_slide {
+  	border: 5px solid purple !important;
+  }
+
+  .slide_selector {
+  	border: 1px solid #000;
+  	left: 50%;
+  }
+
+  #live_slide {
+  	height: 10%;
+  	width: 10%;
+  }
+
+  #error {
+  	top: 50%;
+  	position: absolute;
+  	left: 50%;
+  	margin-left: -200px;
+  	border-radius: 30px;
+  	font-size: 40px;
+  	padding: 20px;
+  	text-align: center;
+  	width: 400px;
+  	color: #ffffff;
+  	font-weight: bold;
+  	background: #000000;
+  	opacity: .5;
+  	display: none;
+  	filter: alpha(opacity=50);
+  }
+
+  #slides_container {
+  	position: absolute;
+  	overflow: auto;
+  	left: 0;
+  	bottom: 0;
+  	top: 52px;
+  	width: 150px;
+  	min-height: 610px;
+  }
+  #new_slide {
+  	border: 1px solid #FFFFFF;
+  }
+
+  #new_slide:hover{
+  	background:red;
+  	cursor: pointer;
+  }
+
+  #slides_container canvas {
+  	position: relative;
+  }
+
+  #slides_container > * {
+  	height: 80px;
+  	width: 106px;
+  	margin: 10px;
+  	background: #ffffff;
+  	border: 1px solid #000;
+
+  }
+
+  #container {
+  	padding: 30px;
+  	position: absolute;
+  	min-height:610px;
+  	min-width: 810px;
+  	background-color: #fff;
+  	background-image: none;
+  	top: 52px;
+  	bottom: 0;
+  	right: 0px;
+  	left: 150px;
+  	background: #d5d5d5;
+  }
+
+  #mesure {
+  	display: none;
+  	position: absolute;
+  	height:610px;
+  	width: 810px;
+  	border: 1px solid;
+  	top: 0;
+  	left: 0;
+  }
+
+  #container canvas {
+  	min-height:610px;
+  	min-width: 810px;
+  	/*margin-left: -405px;
+  	margin-top: -304px;*/
+  }
+
+  #debug {
+  	position: absolute;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	height: 100px;
+  	overflow: auto;
+  	border: 1px solid black;
+  	background: black;
+  	color: #34e338;
+  	z-index: 50;
+  }
+
+  canvas {
+  	position: absolute;
+  }
+
+  #color_selector {
+  	position: relative;
+  	width: 46px;
+  	height: 46px;
+  }
+
+  #color_selector div {
+  	position: absolute;
+  	border: 1px solid #FFFFFF;
+  	background: #000000;
+  	width: 46px;
+  	height: 46px;
+  }
+}
