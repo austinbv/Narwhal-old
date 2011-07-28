@@ -1,4 +1,4 @@
 class Slide < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :presentation
   has_many :shapes
 end

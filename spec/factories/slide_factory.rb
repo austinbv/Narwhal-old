@@ -1,3 +1,3 @@
 Factory.define :slide do |s|
-  s.association :project
+  s.association :presentation
 end

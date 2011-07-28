@@ -13,6 +13,9 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'haml'
 gem 'pusher'
+gem 'decent_exposure'
+gem 'heroku'
+gem 'thin'
 
 gem 'jquery-rails'
 
@@ -36,4 +39,8 @@ group :test, :development do
   gem 'shoulda'
   gem 'capybara'
   gem 'jasmine'
+end
+
+group :production do
+  gem 'pg'
 end
