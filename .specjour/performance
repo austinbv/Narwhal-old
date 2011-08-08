@@ -1,0 +1,6 @@
+0.340560:./spec/controllers/presentation_controller_spec.rb
+0.321551:./spec/models/presentation_spec.rb
+0.162322:./spec/models/shape_spec.rb
+0.145917:./spec/helpers/presentation_helper_spec.rb
+0.094328:./spec/views/presentation/index.html.erb_spec.rb
+0.092293:./spec/models/slide_spec.rb

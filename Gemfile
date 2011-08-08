@@ -26,7 +26,6 @@ group :test, :development do
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'shoulda'
-  gem 'capybara'
   gem 'guard'
   gem 'guard-coffeescript'
   gem 'guard-sass'
@@ -34,6 +33,10 @@ group :test, :development do
   gem 'growl'
   gem 'jasmine'
   gem 'headless'
+  gem 'specjour'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :production do
