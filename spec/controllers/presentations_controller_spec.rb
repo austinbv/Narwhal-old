@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PresentationController do
+describe PresentationsController do
 
   describe "GET 'index'" do
     it "should be successful" do

@@ -48,19 +48,6 @@ event_map =
   mouseup: "up",
   touchend: "up"
 
-
-
-# //Shape object created basic shell for pushing on points with action
-# function Shape(type, lineWidth, color, height, width, radius, x, y) {
-#   this.type = type;
-#   this.lineWidth = lineWidth;
-#   this.color = color;
-#   this.h = height;
-#   this.w = width;
-#   this.r = radius;
-#   this.points = {x: [x], y: [y]};
-# }
-
 # //Designed to change the current tool whenever a new radio button is clicked
 # function toolSelect() {
 #   oldTool = $('.selected').parent('label').attr('for');
@@ -84,32 +71,11 @@ event_map =
 #   return { x: curleft, y: curtop };
 # }
 
-
-# //Initialiaze all the canvas's and bind the propper events
-# function init () {
-#   canvas = $('#drawn').get(0);
-#   c = canvas.getContext('2d');
-#   $('#drawn').parent().append($('<canvas id="temp" height="'+canvas.height+'" width="'+canvas.width+'"></canvas>'));
-#   d = $('#temp').get(0).getContext('2d');
-#   c.lineJoin = "round";
-#   c.lineCap = "round";
-#   c.strokeStyle = "#"+ghex;
-#   c.lineWidth = 1;
-#   d.lineJoin = "round";
-#   d.lineCap = "round";
-#   d.strokeStyle = c.strokeStyle;
-#   d.lineWidth = c.lineWidth;
-#
-# //  c.setDims(x*cssScale[0], y*cssScale[1], w*cssScale[0], h*cssScale[1]);
-#   tool = new tools.pencil();
-#   $('#container canvas').bind('mousedown mousemove mouseup', mouse_Draw);
-#   $('#container canvas').bind('touchstart touchmove touchend', touch_Draw);
-# }
-
 init = ->
   # window.canvas = document.getElementById('drawn')
   # window.c = canvas.getContext('2d')
-  window.c = $("#drawn").canvasize()
+  window.c = $("#drawn").loadCanvas()
+  $("#drawn").drawLine({strokeStyle: '#000', strokeWidth: 2, points: {p1: [599,200], p2: [110, 110], p3: [200, 200]}})
   # tool = tools.pencil
 
 # function mouse_Draw (e) {
@@ -157,7 +123,7 @@ init = ->
 # $(window).ready(function () {
 $(window).ready =>
 #   init();
-  # init()
+  init()
 #
 #   var curTool = $("input:checked").attr('id');
 #   toolSelect(curTool);
