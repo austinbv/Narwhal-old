@@ -1,65 +1,30 @@
 # Narwhal Project
 
-## For Luke and Sheehan
+## Mission Statement
 
-This has the proper migrations all you need to do is clone this repo
+> A collaborative presentation application allowing.
 
-    $ git clone git@github.com:austinbv/Narwhal.git
+## Main use case
 
-### Update!!!
+> Small classrooms or business meetings used to share a pre-designed
+> presentation that can be annotated and then recalled and stepped through
+> any time in the future
 
-I changed the `config/database.yml` and the `config/initializers/secret_token.rb`
-to `config/example_database.yml` and `config/initializers/example_secret_token.rb`
-inorder to use the rails application you need to create two new files and copy and
-paste the example contents into the files. To do this in terminal run
+# Actors
 
-    # Make sure you are at the base of the rails app
-    $ cp config/example_database.yml config/database.yml && cp config/initializers/example_secret_token.rb config/initializers/secret_token.rb
+There will be three main users for this application
 
-Now you need to edit the two non example files. Database.yml should use your sql setting and secret token can really but anything
+> - Teacher
+> - Pupil
+> - Collaborator - a collaborator is a sub set of the pupil that has been given rights to edit the presentation or annotate slides
 
-The .gitignore also includes these file so they will not add to the repo!
+## RC1
 
-### end of update
+These are the bare requirements for RC1,  They will all be moved into pivotal tracker and handled as stories.
 
-Next in the directory that you clone down to run
-
-    $ gem install bundler
-    $ bundle
-
-This should give you all the gems.  Now you need juggernaut
-
-    $ rake db:create
-
-Now migrate all the info into your new databases
-
-    $ rake db:migrate
-
-This should give you all the gems and a correct database.
-
-## Now you need juggernaut.
-
-To install juggernaut you need to follow the guides
-
-Sheehan your guide is here
-
-    https://github.com/maccman/juggernaut/blob/master/README.md
-
-Luke you need to install on ubuntu, I do not know what version of ubuntu but if you have 10.10 its
-really simple and a guide can be found here.
-
-    http://www.giantflyingsaucer.com/blog/?p=2284
-
-You will also need to compile redis from source
-
-    http://redis.io/download
-
-The guide is at the bottom of that page and compiled really easily on the dantzig.
-
-The project will all be spec tested using BDD process
-
-Model naming
-
-* Presentation
-* Slide
-* Shape
+> - There must be an annotable slide that can be recalled via a unique id
+> - slides must be able to be precreated
+> - slides must be editable
+> - slides must sync across 25 computers with no preformance issues.
+> - Teacher must be able to turn on and off contributors
+> - Contributors must be able to see what slide the Teacher is currently on
