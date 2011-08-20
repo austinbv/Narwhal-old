@@ -11,6 +11,9 @@
       <div style="background-color: #000"></div>
     </div>
   </div>
+  <% if presentation.blank? %>
+    <button id="create_presentation">Create Presentation</button>
+  <% end %>
   <div id="line_width">
     <label for="width"></label>
     <select id="width" name="width">

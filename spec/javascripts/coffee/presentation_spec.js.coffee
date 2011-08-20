@@ -6,8 +6,8 @@ describe "Presentation", ->
     it "should be creatable", ->
       expect(p).toBeDefined();
 
-    it "should not have any slides", ->
-      expect(p.slides.length).toEqual(0)
+    it "should have one slide", ->
+      expect(p.slides.length).toEqual(1)
 
     it "should have a name", ->
       expect(p.name).toBeDefined()

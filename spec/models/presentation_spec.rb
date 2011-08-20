@@ -25,5 +25,10 @@ describe Presentation do
     it "should be a 7 alpha-numeric character long string" do
       presentation.permalink.length.should == 7
     end
+
+    it "it should be assignable" do
+      pres = Presentation.new(:permalink => "abcdef1")
+      pres.permalink.should == "abcdef1"
+    end
   end
 end
