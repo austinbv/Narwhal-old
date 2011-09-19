@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'mysql2'
 
 # Asset template engines
 gem 'sass-rails'
@@ -15,15 +14,16 @@ gem 'thin'
 gem 'jquery-rails'
 
 # To use debugger
-gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'cucumber'
   gem 'factory_girl'
+  gem 'mysql2'
   gem 'factory_girl_rails'
   gem 'shoulda'
   gem 'guard'
