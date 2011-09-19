@@ -23,4 +23,14 @@ tools.pencil =
   mouseup: (e) ->
     if @started
       @started = false
-      @shape.upload('presentations/9/slides/1/shapes')
+      if @shape.points.length > 5
+        @shape.upload('presentations/9/slides/1/shapes')
+
+tools.eraser =
+  started: false
+  mousedown: (e) ->
+    x = 1
+  mousemove: (e) ->
+    x = 1
+  mouseup: (e) ->
+    x = 1

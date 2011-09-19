@@ -35,11 +35,14 @@ find_position = (obj) ->
   curtop = $(obj).offset().top - $(window).scrollTop()
   { x: curleft, y: curtop }
 
+currentTool = () ->
+  $("#tool option:selected").attr('value')
+
 mouse_draw = (e) ->
   position = find_position(@)
   e._x = e.clientX - position.x
   e._y = e.clientY - position.y
-  func = tools.pencil[e.type]
+  func = tools[currentTool()][e.type]
   if func?
     func(e)
 
