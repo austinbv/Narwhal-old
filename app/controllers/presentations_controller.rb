@@ -1,18 +1,12 @@
 class PresentationsController < ApplicationController
-  expose(:presentation) do
-    if params[:id]
-      Presentation.find_by_permalink(params[:id])
-    end
-  end
+  expose(:presentations)
+  expose(:presentation) {Presentation.find_by_permalink(params[:id])}
+
   def index
   end
 
-
-
   def create
     if presentation.save
-
     end
   end
-
 end

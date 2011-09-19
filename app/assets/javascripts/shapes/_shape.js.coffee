@@ -1,4 +1,10 @@
 class window.Shape
-  constructor: (@fill_color = "#ffffff", @stroke_color = "#000000", @line_width = 1) ->
+  constructor: (points, @fill_color = "#ffffff", @stroke_color = "#000000", @stroke_width = 1) ->
+    @points = []
+    if points?
+      @points.push(points)
+    return
 
-  points: ""
+  addPoints: (points) -> 
+    @points.push(points)
+    return
