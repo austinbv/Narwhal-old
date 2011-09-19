@@ -8,3 +8,17 @@ class window.Shape
   addPoints: (points) -> 
     @points.push(points)
     return
+
+  addPointsBlob: (points) ->
+    for point, xy of points
+      @points.push(xy)
+
+  upload: (url) ->
+    $.post(url,
+      shape:
+        type: @type
+        points: @points
+        stroke_width: @stroke_width
+        stroke_color: @stroke_color
+        fill_color: @fill_color
+    )

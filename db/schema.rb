@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919045725) do
+ActiveRecord::Schema.define(:version => 20110919143300) do
 
   create_table "presentations", :force => true do |t|
     t.string   "permalink"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20110919045725) do
     t.integer  "radius"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "points"
+    t.text     "points"
   end
 
   create_table "slides", :force => true do |t|
