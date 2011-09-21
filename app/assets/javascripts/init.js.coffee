@@ -64,7 +64,7 @@ init = ->
     $('#notice p').text "Thanks for working with me, I will redirect you to a survey now"
     $('#notice').slideDown('slow', ->
       setTimeout(->
-        window.location = 'https://docs.google.com/spreadsheet/viewform?formkey=dC1aa01TbkszUHAySmdobTgydkx3NWc6MQ'
+        window.location = '/survey'
       , 3000)
     )
   )
