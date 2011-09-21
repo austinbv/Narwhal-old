@@ -29,8 +29,8 @@ tools.pencil =
 tools.eraser =
   started: false
   mousedown: (e) ->
-    x = 1
+    @started = true
   mousemove: (e) ->
     x = 1
   mouseup: (e) ->
-    x = 1
+    @started = false

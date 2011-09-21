@@ -42,6 +42,8 @@ mouse_draw = (e) ->
   position = find_position(@)
   e._x = e.clientX - position.x
   e._y = e.clientY - position.y
+  if currentTool() == 'eraser'
+    $('#drawing').hide()
   func = tools[currentTool()][e.type]
   if func?
     func(e)
@@ -54,18 +56,24 @@ init = ->
   window.pusher = new Pusher('b106769bbea5c2e08e77')
   window.channel = pusher.subscribe('test_channel')
   channel.bind('my_event',(thing) ->
-#    $('#drawing').draw((ctx) -> 
-#      ctx.beginPath()
-#      ctx.strokeStyle = thing.stroke_style
-#      ctx.moveTo(thing.points['0'].x, thing.points['0'].y)
-#      for point, xy of thing.points
-#        ctx.lineTo(xy.x, xy.y)
-#      ctx.stroke()
-#    )
     shape = new Squiggle()
     shape.addPointsBlob(thing.points)
-    shape.draw("live_canvas")
+         .draw("live_canvas")
   )
+  channel.bind('survey_redirect', (data) ->
+    $('#notice p').text "Thanks for working with me, I will redirect you to a survey now"
+    $('#notice').slideDown('slow', ->
+      setTimeout(->
+        window.location = 'https://docs.google.com/spreadsheet/viewform?formkey=dC1aa01TbkszUHAySmdobTgydkx3NWc6MQ'
+      , 3000)
+    )
+  )
+
+  $('#tool').change ->
+    if currentTool() == 'eraser'
+      $('#drawing').hide()
+    else
+      $('#drawing').show()
 
 $(window).ready =>
   init()

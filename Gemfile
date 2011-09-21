@@ -13,7 +13,7 @@ gem 'heroku'
 gem 'thin'
 gem 'jquery-rails'
 
-# To use debugger
+gem 'high_voltage'
 
 group :test, :development do
   # Pretty printed test output

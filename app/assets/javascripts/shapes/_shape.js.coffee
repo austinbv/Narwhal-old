@@ -3,15 +3,16 @@ class window.Shape
     @points = []
     if points?
       @points.push(points)
-    return
+    @
 
   addPoints: (points) -> 
     @points.push(points)
-    return
+    @
 
   addPointsBlob: (points) ->
     for point, xy of points
       @points.push(xy)
+    @
 
   upload: (url) ->
     $.post(url,
@@ -22,3 +23,4 @@ class window.Shape
         stroke_color: @stroke_color
         fill_color: @fill_color
     )
+    @
