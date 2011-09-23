@@ -12,8 +12,8 @@ down = false
 sync = true
 live_id = "live_slide"
 
-palletHeight = $(window).height()-100
-palletWidth = $(window).width()
+palletHeight = $(window).height()-101
+palletWidth = $(window).width()-1
 
 eventMap =
   mousemove: "move",
