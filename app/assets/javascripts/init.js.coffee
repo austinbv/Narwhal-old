@@ -12,7 +12,7 @@ down = false
 sync = true
 live_id = "live_slide"
 
-palletHeight = $(window).height()-101
+palletHeight = $(window).height()-105
 palletWidth = $(window).width()-1
 
 eventMap =
@@ -58,20 +58,26 @@ mouse_draw = (e) ->
   if func?
     func(e)
 
-resize_canvas = ->
+resizeCanvas = ->
+  palletHeight = $(window).height()-105
+  palletWidth = $(window).width()-1
   $('#drawing').attr('height', palletHeight).attr('width', palletWidth)
   $('#live_canvas').height(palletHeight).width(palletWidth)
+  liveCanvas.setSize(palletWidth, palletHeight)
 
 init = ->
-  resize_canvas()
-  changeTool()
   window.liveCanvas = Raphael("live_canvas", palletWidth, palletHeight)
+  resizeCanvas()
+  changeTool()
+  $(window).resize ->
+    resizeCanvas()
+
   window.c = $("#drawing").loadCanvas()
   $("#drawing").bind('mousedown mousemove mouseup', mouse_draw)
 
   window.pusher = new Pusher('b106769bbea5c2e08e77')
   window.channel = pusher.subscribe('test_channel')
-  channel.bind('my_event',(thing) ->
+  channel.bind('squiggle_event',(thing) ->
     shape = new Squiggle()
     shape.addPointsBlob(thing.points)
          .draw("live_canvas")

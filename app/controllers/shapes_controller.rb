@@ -21,7 +21,7 @@ class ShapesController < ApplicationController
     shape = Shape.create(params[:shape])    
 #    shape.points = params[:shape][:points].to_s
     if shape.save
-      Pusher['test_channel'].trigger('my_event', shape.attributes)
+      Pusher['test_channel'].trigger("#{shape.type}_event", shape.attributes)
     end
     render nothing: true
   end

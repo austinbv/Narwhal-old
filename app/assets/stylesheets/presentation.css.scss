@@ -20,9 +20,8 @@ body {
   #live_canvas {
     left: 0px;
     position:absolute;
-    border: 1px solid #000;
     z-index: 5;
-    background: #fff;
+    background: #f3f3f3;
   }
 
   #container {
@@ -30,13 +29,10 @@ body {
     padding: 0px;
     position: absolute;
     width: 100%;
-    background-color: #fff;
     top: 100px;
-    background: #d5d5d5;
   }
 
   #toolbar {
-    background-color:#ffffff;
     background: url(/images/background.jpg) repeat-x;
     height: 100px;
     width: 100%;
@@ -154,6 +150,7 @@ body {
 
   #notice {
     display: none;
+    height: 100px;
     z-index:100;
     background: yellow;
     color: black;
@@ -162,7 +159,7 @@ body {
     top: 0px;
     padding: 0px;
     text-align: center;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: bold;
     left: 0px;
   }
