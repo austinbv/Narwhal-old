@@ -4,40 +4,152 @@
 
 body {
   #content {
-  	position: relative;
-  	top: 0;
-  	left: 0;
-  	right: 0;
-  	bottom: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   #drawing {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    left: 0px;
     z-index: 10;
   }
   
   #live_canvas {
+    left: 0px;
     position:absolute;
-    top: 30px;
-    left: 30px;
     border: 1px solid #000;
     z-index: 5;
     background: #fff;
   }
+
   #container {
-  	padding: 30px;
-  	position: absolute;
-  	min-height:610px;
-  	min-width: 810px;
-  	background-color: #fff;
-  	background-image: none;
-  	top: 52px;
-  	bottom: 0;
-  	right: 0px;
-  	left: 150px;
-  	background: #d5d5d5;
+    left: 0px;
+    padding: 0px;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    top: 100px;
+    background: #d5d5d5;
+  }
+
+  #toolbar {
+    background-color:#ffffff;
+    background: url(/images/background.jpg) repeat-x;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  #survey_button {
+    display: block;
+    background: url(/images/survey-button.png);
+    height: 99px;
+    width: 160px;
+    top: -34px;
+    z-index: 10px;
+    position: absolute;
+    right: 30%;
+    text-indent: -999px;
+    
+    -webkit-transition: -webkit-transform .3s ease, box-shadow .3s ease;
+    -moz-transition: -moz-transform .3s ease box-shadow .3s ease;
+
+
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+    -moz-transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+
+    &:hover {
+      cursor: pointer;
+      -moz-box-shadow: 15px 15px 7px #888;
+      -webkit-box-shadow: 15px 15px 7px #888;
+      box-shadow: 15px 15px 7px #888;
+      -webkit-transform: rotateX(3deg) scale(1.05);
+      -moz-transform: rotateX(3deg) scale(1.05);
+    }
+  }
+  
+  #logo {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    width: 200px;
+    height: 100px;
+    background: url(/images/logo.jpg);
+    text-indent: -999px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    
+  }
+
+  #links {
+    position: absolute;
+    right: 40px;
+    top: 35px;
+    a {
+      color: #444444;
+      text-decoration: none;
+      font-size: 20px;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+    }
+  }
+
+  .tool_select {
+    cursor: pointer;
+    height: 60px;
+    width: 80px;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: bottom;
+    background: #c0c0c0;
+    border: #c6c6c6 1px solid;
+
+    span {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 20px;
+      color: white;
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      margin: auto;
+    }
+  }
+
+  .tool_select:hover, .tool_select.active {
+    background: #969696;
+    border: #c6c6c6 1px solid;
+
+    span {
+      bottom: 8px;
+      left: 22px;
+    }
+  }
+
+  #pencil_select {
+    position: absolute;
+    left: 210px;
+    top: 20px;
+  }
+
+  #eraser_select {
+    position: absolute;
+    left: 310px;
+    top: 20px;
   }
 
   #notice {

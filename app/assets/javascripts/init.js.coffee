@@ -12,6 +12,9 @@ down = false
 sync = true
 live_id = "live_slide"
 
+palletHeight = $(window).height()-100
+palletWidth = $(window).width()
+
 eventMap =
   mousemove: "move",
   touchmove: "move",
@@ -36,7 +39,7 @@ find_position = (obj) ->
   { x: curleft, y: curtop }
 
 currentTool = () ->
-  $("#tool option:selected").attr('value')
+  $("#tool option:selected").attr('value') ? "pencil"
 
 mouse_draw = (e) ->
   position = find_position(@)
@@ -48,8 +51,13 @@ mouse_draw = (e) ->
   if func?
     func(e)
 
+resize_canvas = ->
+  $('#drawing').attr('height', palletHeight).attr('width', palletWidth)
+  $('#live_canvas').height(palletHeight).width(palletWidth)
+
 init = ->
-  window.liveCanvas = Raphael("live_canvas", 810, 608)
+  resize_canvas()
+  window.liveCanvas = Raphael("live_canvas", palletWidth, palletHeight)
   window.c = $("#drawing").loadCanvas()
   $("#drawing").bind('mousedown mousemove mouseup', mouse_draw)
 

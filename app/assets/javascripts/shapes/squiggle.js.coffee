@@ -8,7 +8,7 @@ class window.Squiggle extends Shape
   draw: (id) ->
     @drawnShape.shape = liveCanvas.path("#{@pointsToPath()}")
     @drawnShape.shape.attr({stroke: @stroke_color})
-    # $('#drawing').clearCanvas()
+    $('#drawing').clearCanvas()
     $('#live_canvas').mousedown( (e) =>
       console.log 'down', @drawnShape
       @drawnShape.started = true
