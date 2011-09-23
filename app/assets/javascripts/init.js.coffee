@@ -38,8 +38,15 @@ find_position = (obj) ->
   curtop = $(obj).offset().top - $(window).scrollTop()
   { x: curleft, y: curtop }
 
+changeTool = () ->
+  $('.tool_select').click ->
+    $('.tool_select').removeClass('active')
+    $(this).addClass('active')
+    $('#drawing').show()
+    return
+  return
 currentTool = () ->
-  $("#tool option:selected").attr('value') ? "pencil"
+  $(".tool_select.active").data('type')
 
 mouse_draw = (e) ->
   position = find_position(@)
@@ -57,6 +64,7 @@ resize_canvas = ->
 
 init = ->
   resize_canvas()
+  changeTool()
   window.liveCanvas = Raphael("live_canvas", palletWidth, palletHeight)
   window.c = $("#drawing").loadCanvas()
   $("#drawing").bind('mousedown mousemove mouseup', mouse_draw)

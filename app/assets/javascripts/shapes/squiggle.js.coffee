@@ -7,19 +7,16 @@ class window.Squiggle extends Shape
 
   draw: (id) ->
     @drawnShape.shape = liveCanvas.path("#{@pointsToPath()}")
-    @drawnShape.shape.attr({stroke: @stroke_color})
+    @drawnShape.shape.attr({stroke: @stroke_color, 'stroke-linecap': 'round', 'stroke-width': 3})
     $('#drawing').clearCanvas()
     $('#live_canvas').mousedown( (e) =>
-      console.log 'down', @drawnShape
       @drawnShape.started = true
     )
     @drawnShape.shape.mouseover( (e) =>
-      if @drawnShape.started = true
-        console.log 'move', @drawnShape
+      if @drawnShape.started == true
         @drawnShape.shape.remove()
     )
     $('#live_canvas').mouseup( (e) =>
-      console.log 'up', @drawnShape
       @drawnShape.started = false
     )
     @

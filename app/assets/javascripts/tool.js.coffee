@@ -7,6 +7,8 @@ tools.pencil =
     $("#drawing").draw((ctx) ->
       ctx.beginPath()
       ctx.strokeStyle = "#000"
+      ctx.lineWidth = 3
+      ctx.lineCap = 'round'
       ctx.moveTo(e._x, e._y)
     )
     @started = true
