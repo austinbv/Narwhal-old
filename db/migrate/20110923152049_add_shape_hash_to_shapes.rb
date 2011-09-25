@@ -9,6 +9,6 @@ class AddShapeHashToShapes < ActiveRecord::Migration
   end
 
   def down
-    remove_column :shapes
+    remove_column :shapes, :hash
   end
 end
