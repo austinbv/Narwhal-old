@@ -4,6 +4,7 @@ class ShapesPointsFromStringToText < ActiveRecord::Migration
   end
 
   def down
-    change_column :shapes, :points, :string
+    remove_column :shapes, :points
+    add_column :shapes, :points, :string
   end
 end
