@@ -5,7 +5,7 @@ class XPointsYPointsToPoints < ActiveRecord::Migration
   end
 
   def down
-    add_column :shapes, :y_points
+    add_column :shapes, :y_points, :integer
     rename_column :shapes, :points, :x_points
   end
 end
