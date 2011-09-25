@@ -3,7 +3,7 @@ class CreateShapes < ActiveRecord::Migration
     create_table :shapes do |t|
       t.references :slide
 
-      t.string :type
+      t.string :shape_type
       t.integer :stroke_width
       t.string :stroke_color
       t.string :fill_color

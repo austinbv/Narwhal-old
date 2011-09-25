@@ -1,0 +1,25 @@
+<%=render 'tool_bar'%>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $.getJSON("/presentations/<%=presentation.permalink%>", function (slide) {
+      runShapes(slide)
+    });
+  });
+</script>
+
+<div id="container">
+  <canvas data-current-slide="<%=slide.id%>" data-presentation="<%=presentation.permalink %>" id="drawing" height="608" width="810">
+    <p>
+      Your Browser Does Not Support HTML5 Please Upgrade for the sake of innovation
+      <a href="http://www.google.com/chrome">Google Chrome</a>
+      <a href="http://www.mozilla.com">FireFox</a>
+      <a href="http://www.apple.com/safari">Safari</a>
+      <a href="http://www.opera.com">Opera</a>
+    </p>
+      <div id="error" class="hidden"></div>
+  </canvas>
+  <div id="live_canvas"></div>
+</div>
+<div id="notice">
+  <p>This is a test box</p>
+</div>

@@ -3,6 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
+
+  .no_select {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
   #content {
     position: relative;
     top: 0;
@@ -39,14 +47,11 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
+
   }
 
   #survey_button {
+    border: none;
     display: block;
     background: url(/images/survey-button.png);
     height: 99px;
@@ -76,13 +81,8 @@ body {
       -moz-transform: rotateX(3deg) scale(1.05);
     }
   }
-  
+
   #logo {
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -o-user-select: none;
-    user-select: none;
     width: 200px;
     height: 100px;
     background: url(/images/logo.jpg);
@@ -108,21 +108,19 @@ body {
   .tool_select {
     cursor: pointer;
     height: 60px;
-    width: 80px;
+    min-width: 80px;
     border-radius: 10px;
     text-align: center;
     vertical-align: bottom;
     background: #c0c0c0;
     border: #c6c6c6 1px solid;
 
-    span {
+    span, & {
       font-family: 'Yanone Kaffeesatz', sans-serif;
       font-size: 20px;
       color: white;
-      position: absolute;
-      bottom: 10px;
-      left: 20px;
       margin: auto;
+      vertical-align: middle;
     }
   }
 
@@ -147,6 +145,26 @@ body {
     left: 310px;
     top: 20px;
   }
+  
+  #stroke_width_select {
+    cursor: pointer;
+    position: absolute;
+    left: 410px;
+    top: 20px;
+    height: 20px;
+    width: 100px;
+    padding: 5px;
+    text-align: right;
+    border-radius: 7px;
+    background: #c0c0c0;
+    border: #c6c6c6 1px solid;
+
+    &:hover {
+      background: #969696;
+      border: #c6c6c6 1px solid;
+    }
+
+  }
 
   #notice {
     display: none;
@@ -162,5 +180,76 @@ body {
     font-size: 30px;
     font-weight: bold;
     left: 0px;
+  }
+
+  #ribbon {
+    z-index: 1000;
+    background: #E60039 ;
+    color: white;
+    padding: 3px 100px;
+    position: absolute;
+    right: -90px;
+    top: 90px;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    font-size: 20px;
+    border-top: 4px #AB002C solid;
+    background-image: -moz-linear-gradient(left, #e60039 50%, #a8002a 100%);
+    background-image: -webkit-gradient(linear, left top, right bottom, from(#e60039), to(#a8002a));
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  #tool_pallet {
+    display: none;
+    position: relative;
+    background: #c4c4c4;
+    border-left: 3px #9b9b9b solid;
+    border-right: 3px #9b9b9b solid;
+    border-bottom: 3px #9b9b9b solid;
+    border-radius: 0px 0px 15px 15px;
+    width: 80%;
+    margin: auto;
+    height: 100px;
+    z-index: 15;
+    top: 100px;
+  }
+
+  #stroke_width_select {
+    #mini_stroke_example {
+      position: absolute;
+      left: 15px;
+      top: 3px;
+    }
+    span {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 20px;
+      color: white;
+      margin: auto;
+      vertical-align: middle;
+    }
+  }
+
+  #stroke_width_slider_wrap {
+    margin: auto;
+  }
+
+  #stroke_example {
+    position: absolute;
+    height: 21px;
+    width: 100px;
+    top: 33px;
+    left: 10%;
+  }
+
+  #stroke_width_slider {
+    position: absolute;
+    left: 30%;
+    top: 33px;
+    width: 60%;
   }
 }

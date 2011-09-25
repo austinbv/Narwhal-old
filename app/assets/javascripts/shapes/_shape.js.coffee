@@ -1,5 +1,5 @@
 class window.Shape
-  constructor: (points, @fill_color = "#ffffff", @stroke_color = "#000000", @stroke_width = 10) ->
+  constructor: (points, @fill_color = "#ffffff", @stroke_color = "#000000", @stroke_width = global_width) ->
     @points = []
     if points?
       @points.push(points)
@@ -17,10 +17,17 @@ class window.Shape
   upload: (url) ->
     $.post(url,
       shape:
-        type: @type
+        shape_type: @shape_type
         points: @points
         stroke_width: @stroke_width
         stroke_color: @stroke_color
         fill_color: @fill_color
+      channel: $("#drawing").data("presentation")
     )
     @
+
+  destroy: (url) ->
+    $.ajax(
+      type: 'delete'
+      url: url
+    )

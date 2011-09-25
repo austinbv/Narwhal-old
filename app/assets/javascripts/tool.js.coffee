@@ -7,7 +7,7 @@ tools.pencil =
     $("#drawing").draw((ctx) ->
       ctx.beginPath()
       ctx.strokeStyle = "#000"
-      ctx.lineWidth = 3
+      ctx.lineWidth = global_width
       ctx.lineCap = 'round'
       ctx.moveTo(e._x, e._y)
     )
@@ -25,8 +25,8 @@ tools.pencil =
   mouseup: (e) ->
     if @started
       @started = false
-      if @shape.points.length > 5
-        @shape.upload('presentations/9/slides/1/shapes')
+      if @shape.points.length > 5 && $("#drawing").data("presentation")
+        @shape.upload("/presentations/#{$("#drawing").data("presentation")}/slides/#{$("#drawing").data("current-slide")}/shapes")
 
 tools.eraser =
   started: false

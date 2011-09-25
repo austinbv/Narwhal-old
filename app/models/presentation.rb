@@ -6,6 +6,10 @@ class Presentation < ActiveRecord::Base
             :uniqueness => true
   after_initialize :create_permalink
 
+  def to_param
+    permalink
+  end
+
   private
 
   def create_permalink

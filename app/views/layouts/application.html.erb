@@ -15,7 +15,10 @@
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
 
+  <div id="ribbon" class="no_select">
+    <%= link_to "Take the Survey Now", survey_path %>
+  </div>
 </body>
 </html>

@@ -1,12 +1,30 @@
-<div id="toolbar">
+<div id="toolbar" class="no_select">
   <div id="logo">Draw like a Narwhal</div>
-  <a id="survey_button" href="/survey">take the survey now</a>
   <div id="tool_select_wrap">
-    <div id="pencil_select" class="tool_select active" data-type="pencil"><span>Pencil</span></div>
-    <div id="eraser_select" class="tool_select" data-type="eraser"><span>Eraser</span></div>
+    <div id="pencil_select" class="tool_select active" data-type="pencil">
+      <span>Pencil</span>
+    </div>
+    <div id="eraser_select" class="tool_select" data-type="eraser">
+      <span>Eraser</span>
+    </div>
+    <div id="stroke_width_select" class="width_select" data-type="stroke_width">
+      <span id="mini_stroke_example"></span>
+      <span>Width</span>
+    </div>
   </div>
+  <% unless presentation %>
+    <%= form_tag do %>
+      <%= submit_tag("Start A Class Now!", :id => "survey_button") %>
+    <% end %>
+  <% end %>
   <div id="links">
     <a href="#">Contact</a> | 
     <a href="#">Blog</a>
+  </div>
+</div>
+<div id="tool_pallet">
+  <div id="stroke_width_slider_wrap">
+    <div id="stroke_example"></div>
+    <div id="stroke_width_slider"></div>
   </div>
 </div>

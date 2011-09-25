@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110919143300) do
+ActiveRecord::Schema.define(:version => 20110923152049) do
 
   create_table "presentations", :force => true do |t|
     t.string   "permalink"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20110919143300) do
 
   create_table "shapes", :force => true do |t|
     t.integer  "slide_id"
-    t.string   "type"
+    t.string   "shape_type"
     t.integer  "stroke_width"
     t.string   "stroke_color"
     t.string   "fill_color"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110919143300) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "points"
+    t.string   "hash"
   end
 
   create_table "slides", :force => true do |t|

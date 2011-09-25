@@ -1,0 +1,1 @@
+Number.prototype.times = (func) -> func() for [0...@]
