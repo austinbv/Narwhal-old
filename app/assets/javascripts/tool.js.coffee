@@ -28,11 +28,30 @@ tools.pencil =
       if @shape.points.length > 5 && $("#drawing").data("presentation")
         @shape.upload("/presentations/#{$("#drawing").data("presentation")}/slides/#{$("#drawing").data("current-slide")}/shapes")
 
-tools.eraser =
+tools.line =
   started: false
+  shape: null
+  startX: null
+  startY: null
   mousedown: (e) ->
+    @startX = e._x
+    @startY = e._y
     @started = true
+    @shape = new Squiggle({x: e._x, y: e._y})
   mousemove: (e) ->
-    x = 1
+    if @started
+      $("#drawing").clearCanvas()
+      $("#drawing").draw((ctx) ->
+        ctx.beginPath()
+        ctx.strokeStyle = '#000000'
+        ctx.lineWidth = global_width
+        ctx.lineCap = 'round'
+        ctx.moveTo(startX, startY)
+        ctx.lineTo(e._x, e._y)
+        ctx.stroke()
+      )
   mouseup: (e) ->
-    @started = false
+    if @started
+      @shape.addPoints({x: e._x, y: e._y})
+      @started = false
+      @shape.upload("/presentations/#{$("#drawing").data("presentation")}/slides/#{$("#drawing").data("current-slide")}/shapes")

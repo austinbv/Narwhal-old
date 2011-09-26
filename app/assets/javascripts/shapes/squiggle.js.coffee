@@ -15,9 +15,8 @@ class window.Squiggle extends Shape
     )
     @drawnShape.shape.mouseover( (e) =>
       if @drawnShape.started == true
-        console.log @remove
-        if @remove()
-          @delete("/projects/#{$("#drawing").data("presentation")}/slides/#{$("#drawing").data("current-slide")}/#{id}")
+        @remove()
+        @destroy("/presentations/#{$("#drawing").data("presentation")}/slides/#{$("#drawing").data("current-slide")}/shapes/#{id}")
     )
     $('#live_canvas').mouseup( (e) =>
       @drawnShape.started = false
@@ -25,10 +24,7 @@ class window.Squiggle extends Shape
     @
 
   remove: ->
-    if @drawnShape.shape.remove()
-      true
-    else
-      false
+    @drawnShape.shape.remove()
 
   pointsToPath: () ->
     path = 'M'

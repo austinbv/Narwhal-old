@@ -6,10 +6,10 @@ Pusher.secret = '2e88df3b269a7944292a'
 
 class ShapesController < ApplicationController
   
-  expose(:presentation) { Presentation.find(params[:presentation_id]) }
+  expose(:presentation) { Presentation.find_by_permalink(params[:presentation_id]) }
   expose(:slide) { Slide.find(params[:slide_id]) }
   expose(:shapes) { slide.shapes }
-  expose(:shape) { Shape.find_by_hash(params[:shape_id]) }
+  expose(:shape) { Shape.find_by_hash(params[:id]) }
   def index
     redirect_to root_path
   end
@@ -29,7 +29,8 @@ class ShapesController < ApplicationController
 
   def destroy
     if shape.destroy
-      Pusher['test_channel'].trigger("#{shape.shape_type}_destroy_event", {:hash => shape.hash})
+      Pusher[presentation.permalink].trigger("#{shape.shape_type}_destroy_event", {:hash => shape.hash})
     end
+    render nothing: true
   end
 end

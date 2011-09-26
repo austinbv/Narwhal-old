@@ -14,6 +14,7 @@ body {
     -o-user-select: none;
     user-select: none;
   }
+
   #content {
     position: relative;
     top: 0;
@@ -148,11 +149,17 @@ body {
     left: 310px;
     top: 20px;
   }
+
+  #line_select {
+    position: absolute;
+    left: 410px;
+    top: 20px
+  }
   
   #stroke_width_select {
     cursor: pointer;
     position: absolute;
-    left: 410px;
+    left: 510px;
     top: 20px;
     height: 20px;
     width: 100px;

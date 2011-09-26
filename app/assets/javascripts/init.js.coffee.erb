@@ -90,6 +90,8 @@ strokeExample = (width) ->
   miniExamplePallet.path("M0 6L40 6").attr({stroke: "#000", 'stroke-linecap': 'round', 'stroke-width': width})
 
 init = ->
+# pencilGraphic = Raphael("pencil_graphic", 28, 30)
+# pencilGraphic.path("M25.31,2.872l-3.384-2.127c-0.854-0.536-1.979-0.278-2.517,0.576l-1.334,2.123l6.474,4.066l1.335-2.122C26.42,4.533,26.164,3.407,25.31,2.872zM6.555,21.786l6.474,4.066L23.581,9.054l-6.477-4.067L6.555,21.786zM5.566,26.952l-0.143,3.819l3.379-1.787l3.14-1.658l-6.246-3.925L5.566,26.952z").attr({stroke: "#272727", 'stroke-linecap': 'round', 'stroke-width': 1, fill: "#272727"})
   window.examplePallet = Raphael("stroke_example", 100, 21)
   window.miniExamplePallet = Raphael("mini_stroke_example", 40, 11)
   strokeExample(3)
@@ -120,11 +122,11 @@ init = ->
   channel.bind('squiggle_create_event', (thing) ->
     shape = new Squiggle()
     shape.addPointsBlob(thing.points)
-      .draw("id_#{thing.hash}", thing.stroke_width)
+      .draw("#{thing.hash}", thing.stroke_width)
   )
 
   channel.bind('squiggle_destroy_event', (thing) ->
-    $("id_#{thing.hash}").raphael.remove()
+    $("#id_#{thing.hash}").get(0).raphael.remove()
   )
 
   channel.bind('survey_redirect', (data) ->
@@ -146,8 +148,8 @@ window.runShapes = (slide) ->
   for shape in slide
     squiggle = new Squiggle()
     squiggle.addPointsBlob(shape.points)
-      .draw("id_#{shape.hash}", shape.stroke_width)
+      .draw("#{shape.hash}", shape.stroke_width)
 
-$(window).ready =>
+$(document).ready =>
   init()
 
