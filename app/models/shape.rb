@@ -5,7 +5,6 @@ class Shape < ActiveRecord::Base
   serialize :points
 
   before_create :build_hash
-#just because
   private
 
   def build_hash
