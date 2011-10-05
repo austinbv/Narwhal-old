@@ -54,7 +54,7 @@ body {
 
   }
 
-  #survey_button {
+  #start_a_class {
     border: none;
     display: block;
     background: url(/images/survey-button.png);
@@ -68,7 +68,6 @@ body {
     
     -webkit-transition: -webkit-transform .3s ease, box-shadow .3s ease;
     -moz-transition: -moz-transform .3s ease box-shadow .3s ease;
-
 
     -moz-box-shadow: 10px 10px 5px #888;
     -webkit-box-shadow: 10px 10px 5px #888;
@@ -94,7 +93,6 @@ body {
     position: absolute;
     left: 0px;
     top: 0px;
-    
   }
 
   #links {
@@ -126,15 +124,15 @@ body {
       margin: auto;
       vertical-align: middle;
     }
-  }
 
-  .tool_select:hover, .tool_select.active {
-    background: #969696;
-    border: #c6c6c6 1px solid;
+    &:hover, &.active {
+      background: #969696;
+      border: #c6c6c6 1px solid;
 
-    span {
-      bottom: 8px;
-      left: 22px;
+      span {
+        bottom: 8px;
+        left: 22px;
+      }
     }
   }
 
@@ -153,7 +151,7 @@ body {
   #line_select {
     position: absolute;
     left: 410px;
-    top: 20px
+    top: 20px;
   }
   
   #stroke_width_select {
@@ -161,11 +159,11 @@ body {
     position: absolute;
     left: 510px;
     top: 20px;
-    height: 20px;
+    height: 22px;
     width: 100px;
-    padding: 5px;
     text-align: right;
-    border-radius: 7px;
+    padding-right: 10px;
+    border-radius: 5px;
     background: #c0c0c0;
     border: #c6c6c6 1px solid;
 
@@ -173,23 +171,47 @@ body {
       background: #969696;
       border: #c6c6c6 1px solid;
     }
+    
+    #mini_stroke_example {
+      position: absolute;
+      left: 15px;
+      top: -1px;
+    }
+    
+    span {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 20px;
+      margin-bottom: 2px;
+      color: white;
+      margin: auto;
+      vertical-align: middle;
+    }
+  }
 
+  #allow_collaberation_wrap {
+    position: absolute;
+    left: 510px;
+    height: 22px;
+    top: 51px;
+    background: silver;
+    border: #C6C6C6 1px solid;
+    border-radius: 5px;
   }
 
   #notice {
-    display: none;
-    height: 100px;
     z-index:100;
-    background: yellow;
+    background: #F3E71A;
     color: black;
-    width: 100%;
     position: absolute;
-    top: 0px;
-    padding: 0px;
+    top: 150px;
+    left: 50px;
+    width: 300px;
+    padding: 20px;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
-    left: 0px;
+    -webkit-transform: rotate(-22deg);
+    box-shadow: 10px 10px 10px #888;
   }
 
   #ribbon {
@@ -227,21 +249,6 @@ body {
     height: 100px;
     z-index: 15;
     top: 100px;
-  }
-
-  #stroke_width_select {
-    #mini_stroke_example {
-      position: absolute;
-      left: 15px;
-      top: 3px;
-    }
-    span {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 20px;
-      color: white;
-      margin: auto;
-      vertical-align: middle;
-    }
   }
 
   #stroke_width_slider_wrap {

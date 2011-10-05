@@ -1,4 +1,4 @@
-class window.Slide
+class Narwhal.Slide
   constructor: (@active = 0) ->
 
   shapes: []

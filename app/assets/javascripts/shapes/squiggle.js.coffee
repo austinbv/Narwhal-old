@@ -1,12 +1,12 @@
-class window.Squiggle extends Shape
+class Narwhal.Squiggle extends Narwhal.Shape
   constructor: () ->
-    @drawnShape = 
+    @drawnShape =
       started: false
     @shape_type = 'squiggle'
     super
 
   draw: (id, stroke_width) ->
-    @drawnShape.shape = liveCanvas.path("#{@pointsToPath()}")
+    @drawnShape.shape = Narwhal.liveCanvas.path("#{@pointsToPath()}")
     @drawnShape.shape.attr({stroke: @stroke_color, 'stroke-linecap': 'round', 'stroke-width': stroke_width, id: id})
     $(@drawnShape.shape.node).attr('id', "id_#{id}").data('hash', id)
     $('#drawing').clearCanvas()

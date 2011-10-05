@@ -1,4 +1,4 @@
-class window.Presentation
+class Narwhal.Presentation
   constructor: (@name = @generateName(5)) ->
     @slides.push(new Slide())
 

@@ -5,6 +5,9 @@ class Shape < ActiveRecord::Base
   serialize :points
 
   before_create :build_hash
+  
+# named_scope :all_upto, lambda { |created_at| { conditions: ["created_at < ?", created_at] } }
+
   private
 
   def build_hash

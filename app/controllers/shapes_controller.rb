@@ -22,7 +22,7 @@ class ShapesController < ApplicationController
     shape = Shape.new(params[:shape]) 
     slide.shapes << shape
     if slide.save
-      Pusher[params['channel']].trigger("#{shape.shape_type}_create_event", shape.attributes)
+      Pusher[presentation.permalink].trigger("#{shape.shape_type}_create_event", shape.attributes)
     end
     render nothing: true
   end

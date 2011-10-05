@@ -1,7 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-
+window.Narwhal = {}
 css_offset =
   x: 1
   y: 1
@@ -11,7 +11,7 @@ url = 'test'
 down = false
 sync = true
 live_id = "live_slide"
-window.global_width = 3
+Narwhal.global_width = 3
 
 palletHeight = $(window).height()-105
 palletWidth = $(window).width()-1
@@ -56,7 +56,7 @@ mouse_draw = (e) ->
   e._y = e.clientY - position.y
   if currentTool() == 'eraser'
     $('#drawing').hide()
-  func = tools[currentTool()][e.type]
+  func = Narwhal.tools[currentTool()][e.type]
   if func?
     func(e)
 
@@ -80,20 +80,19 @@ resizeCanvas = ->
   palletWidth = $(window).width()-1
   $('#drawing').attr('height', palletHeight).attr('width', palletWidth)
   $('#live_canvas').height(palletHeight).width(palletWidth)
-  liveCanvas.setSize(palletWidth, palletHeight)
+  Narwhal.liveCanvas.setSize(palletWidth, palletHeight)
 
 strokeExample = (width) ->
-  examplePallet.clear()
-  examplePallet.path("M0 11L100 11").attr({stroke: "#000", 'stroke-linecap': 'round', 'stroke-width': width})
+  Narwhal.examplePallet.clear()
+  Narwhal.examplePallet.path("M0 11L100 11").attr({stroke: "#000", 'stroke-linecap': 'round', 'stroke-width': width})
 
-  miniExamplePallet.clear()
-  miniExamplePallet.path("M0 6L40 6").attr({stroke: "#000", 'stroke-linecap': 'round', 'stroke-width': width})
+  Narwhal.miniExamplePallet.clear()
+  Narwhal.miniExamplePallet.path("M0 6L40 6").attr({stroke: "#000", 'stroke-linecap': 'round', 'stroke-width': width})
 
 init = ->
-# pencilGraphic = Raphael("pencil_graphic", 28, 30)
-# pencilGraphic.path("M25.31,2.872l-3.384-2.127c-0.854-0.536-1.979-0.278-2.517,0.576l-1.334,2.123l6.474,4.066l1.335-2.122C26.42,4.533,26.164,3.407,25.31,2.872zM6.555,21.786l6.474,4.066L23.581,9.054l-6.477-4.067L6.555,21.786zM5.566,26.952l-0.143,3.819l3.379-1.787l3.14-1.658l-6.246-3.925L5.566,26.952z").attr({stroke: "#272727", 'stroke-linecap': 'round', 'stroke-width': 1, fill: "#272727"})
-  window.examplePallet = Raphael("stroke_example", 100, 21)
-  window.miniExamplePallet = Raphael("mini_stroke_example", 40, 11)
+  $("#notice").delay(5000).slideUp(1000)
+  Narwhal.examplePallet = Raphael("stroke_example", 100, 21)
+  Narwhal.miniExamplePallet = Raphael("mini_stroke_example", 40, 11)
   strokeExample(3)
   $("#stroke_width_slider").slider(
     max: 10
@@ -101,7 +100,7 @@ init = ->
     step: 1
     value: 3
     slide: (e, ui) ->
-      window.global_width = ui.value
+      Narwhal.global_width = ui.value
       strokeExample(ui.value)
   )
 
@@ -109,7 +108,7 @@ init = ->
     $("#tool_pallet").slideToggle('slow')
   )
 
-  window.liveCanvas = Raphael("live_canvas", palletWidth, palletHeight)
+  Narwhal.liveCanvas = Raphael("live_canvas", palletWidth, palletHeight)
   resizeCanvas()
   changeTool()
   $(window).resize ->
@@ -117,23 +116,27 @@ init = ->
 
   $("#drawing").bind('mousedown mousemove mouseup', mouse_draw)
 
-  window.pusher = new Pusher('b106769bbea5c2e08e77')
-  window.channel = pusher.subscribe($("#drawing").data("presentation"))
-  channel.bind('squiggle_create_event', (thing) ->
-    shape = new Squiggle()
-    shape.addPointsBlob(thing.points)
-      .draw("#{thing.hash}", thing.stroke_width)
+  pusher = new Pusher('b106769bbea5c2e08e77')
+  channel = pusher.subscribe($("#drawing").data("presentation"))
+  channel.bind('squiggle_create_event', (data) ->
+    shape = new Narwhal.Squiggle()
+    shape.addPointsBlob(data.points)
+      .draw("#{data.hash}", data.stroke_width)
   )
 
-  channel.bind('squiggle_destroy_event', (thing) ->
-    $("#id_#{thing.hash}").get(0).raphael.remove()
+  channel.bind('squiggle_destroy_event', (data) ->
+    $("#id_#{data.hash}").get(0).raphael.remove()
+  )
+
+  channel.bind('collaberation_toggle', (data) ->
+
   )
 
   channel.bind('survey_redirect', (data) ->
     $('#notice p').text "Thanks for working with me, I will redirect you to a survey now"
     $('#notice').slideDown('slow', ->
       setTimeout(->
-        window.location = '/survey'
+        Narwhal.location = '/survey'
       , 3000)
     )
   )
@@ -144,9 +147,9 @@ init = ->
     else
       $('#drawing').show()
 
-window.runShapes = (slide) ->
+Narwhal.runShapes = (slide) ->
   for shape in slide
-    squiggle = new Squiggle()
+    squiggle = new Narwhal.Squiggle()
     squiggle.addPointsBlob(shape.points)
       .draw("#{shape.hash}", shape.stroke_width)
 

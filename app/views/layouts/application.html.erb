@@ -20,5 +20,8 @@
   <div id="ribbon" class="no_select">
     <%= link_to "Take the Survey Now", survey_path %>
   </div>
+  <% if notice %>
+    <div id="notice"><%= notice %></div>
+  <% end %>
 </body>
 </html>

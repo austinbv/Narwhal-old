@@ -1,3 +1,3 @@
-class window.Rectangle extends Shape
+class Narwhal.Rectangle extends Narwhal.Shape
   constructor: (@points, @height, @width) ->
     super

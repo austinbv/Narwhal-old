@@ -6,5 +6,6 @@ Narwhal::Application.routes.draw do
     end
   end
 
+  get ':id', as: "short_presentation", :to => "presentations#show"
   root :to => "presentations#index"
 end

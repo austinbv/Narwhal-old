@@ -1,3 +1,3 @@
-class window.Circle extends Shape
+class Narwhal.Circle extends Narwhal.Shape
   constructor: (@points, @radius)->
     super

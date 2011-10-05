@@ -1,11 +1,11 @@
-class window.Shape
-  constructor: (points, @fill_color = "#ffffff", @stroke_color = "#000000", @stroke_width = global_width) ->
+class Narwhal.Shape
+  constructor: (points, @fill_color = "#ffffff", @stroke_color = "#000000", @stroke_width = Narwhal.global_width) ->
     @points = []
     if points?
       @points.push(points)
     @
 
-  addPoints: (points) -> 
+  addPoints: (points) ->
     @points.push(points)
     @
 
@@ -22,9 +22,7 @@ class window.Shape
         stroke_width: @stroke_width
         stroke_color: @stroke_color
         fill_color: @fill_color
-      channel: $("#drawing").data("presentation")
     )
-    @
 
   destroy: (url) ->
     $.ajax(

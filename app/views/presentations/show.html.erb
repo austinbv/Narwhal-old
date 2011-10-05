@@ -2,7 +2,7 @@
 <script type="text/javascript">
   $(document).ready(function () {
     $.getJSON("/presentations/<%=presentation.permalink%>", function (slide) {
-      runShapes(slide)
+      Narwhal.runShapes(slide)
     });
   });
 </script>
@@ -19,7 +19,4 @@
       <div id="error" class="hidden"></div>
   </canvas>
   <div id="live_canvas"></div>
-</div>
-<div id="notice">
-  <p>This is a test box</p>
 </div>

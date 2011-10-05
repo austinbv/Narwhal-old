@@ -15,9 +15,19 @@
       <span>Width</span>
     </div>
   </div>
-  <% unless presentation %>
+  <% if presentation %>
+    <div id="share_link"><%=short_presentation_url(presentation)%></div>
+      <div id="allow_collaberation_wrap">
+        <% if created_presentations.include? presentation.permalink %>
+          <label for="allow_collaberation">Allow Sharing</label>
+          <input id="allow_collaberation" type="checkbox" checked>
+        <% else %>
+          <span id="collaberation_enabled_disabled">Collaberation <span id="on_off">ON</span></span>
+        <% end %>
+      </div>
+  <% else %>
     <%= form_tag do %>
-      <%= submit_tag("Start A Class Now!", :id => "survey_button") %>
+      <%= submit_tag("Start A Class Now!", :id => "start_a_class") %>
     <% end %>
   <% end %>
   <div id="links">
