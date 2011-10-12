@@ -25,7 +25,7 @@ class PresentationsController < ApplicationController
 
     respond_to do |format|
       if presentation.save
-        format.html { redirect_to short_presentation_path(presentation), notice: "Welcome to your class room, share this url to start collaberating" }
+        format.html { redirect_to short_presentation_path(presentation), notice: "Welcome to your class room, share this url to start collaborating" }
       end
     end
   end
