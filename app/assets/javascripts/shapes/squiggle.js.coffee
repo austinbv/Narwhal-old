@@ -14,7 +14,7 @@ class Narwhal.Squiggle extends Narwhal.Shape
       @drawnShape.started = true
     )
     @drawnShape.shape.mouseover( (e) =>
-      if @drawnShape.started == true && $('#drawing').data('collaberation_on') == true
+      if @drawnShape.started == true && ( $('#drawing').data('collaberation_on') == true || Narwhal.owns_presentation )
         @remove()
         @destroy("/presentations/#{ $("#drawing").data("presentation") }/slides/#{ $("#drawing").data("current-slide") }/shapes/#{ id }")
     )

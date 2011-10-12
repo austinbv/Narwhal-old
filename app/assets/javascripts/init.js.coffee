@@ -11,6 +11,9 @@ down = false
 sync = true
 live_id = "live_slide"
 Narwhal.global_width = 3
+presentation_cookie = $.cookie("created_presentations") ? ""
+Narwhal.owns_presentation = presentation_cookie.search($('#drawing').data('presentation')) != -1
+
 
 palletHeight = $(window).height()-105
 palletWidth = $(window).width()-1
@@ -95,8 +98,7 @@ turn_collaberation = (onOff) ->
     $('#drawing').show()
   else
     $("#collaberation_enabled_disabled span#on_off").text('Off')
-    presentation_cookie = $.cookie("created_presentations") ? ""
-    if presentation_cookie.search($('#drawing').data('presentation')) < 0
+    if !Narwhal.owns_presentation
       $("#drawing").data("collaberation_on", false)
       $('#drawing').hide()
 
