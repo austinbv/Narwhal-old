@@ -146,6 +146,16 @@ body {
     position: absolute;
     left: 310px;
     top: 20px;
+
+  }
+
+  #show_link {
+    position: absolute;
+    left: 610;
+    height: 60px;
+    width: 80px;
+    cursor: pointer;
+    background: #c0c0c0;
   }
 
   #line_select {

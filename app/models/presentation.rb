@@ -6,6 +6,8 @@ class Presentation < ActiveRecord::Base
             :uniqueness => true
   after_initialize :create_permalink
 
+  attr_accessible :collaberation_on
+
   def to_param
     permalink
   end

@@ -19,10 +19,10 @@
     <div id="share_link"><%=short_presentation_url(presentation)%></div>
       <div id="allow_collaberation_wrap">
         <% if created_presentations.include? presentation.permalink %>
-          <label for="allow_collaberation">Allow Sharing</label>
-          <input id="allow_collaberation" type="checkbox" checked>
+          <p>Collaboration</p>
+          <div id="collaboration_switch"></div>
         <% else %>
-          <span id="collaberation_enabled_disabled">Collaberation <span id="on_off">ON</span></span>
+          <span id="collaberation_enabled_disabled">Collaberation <span id="on_off"><%= troolean presentation.collaberation_on, :true => "On", :false => "Off" %></span></span>
         <% end %>
       </div>
   <% else %>
@@ -31,7 +31,7 @@
     <% end %>
   <% end %>
   <div id="links">
-    <a href="#">Contact</a> | 
+    <a href="#">Contact</a> |
     <a href="#">Blog</a>
   </div>
 </div>

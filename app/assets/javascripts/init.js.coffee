@@ -7,7 +7,6 @@ css_offset =
   y: 1
 DEBUG = false
 ghex = 0
-url = 'test'
 down = false
 sync = true
 live_id = "live_slide"
@@ -89,7 +88,45 @@ strokeExample = (width) ->
   Narwhal.miniExamplePallet.clear()
   Narwhal.miniExamplePallet.path("M0 6L40 6").attr({stroke: "#000", 'stroke-linecap': 'round', 'stroke-width': width})
 
+turn_collaberation = (onOff) ->
+  if onOff == "on"
+    $("#collaberation_enabled_disabled span#on_off").text('On')
+    $("#drawing").data("collaberation_on", true)
+    $('#drawing').show()
+  else
+    $("#collaberation_enabled_disabled span#on_off").text('Off')
+    presentation_cookie = $.cookie("created_presentations") ? ""
+    if presentation_cookie.search($('#drawing').data('presentation')) < 0
+      $("#drawing").data("collaberation_on", false)
+      $('#drawing').hide()
+
+troolean = (bool, options = {}) ->
+  if bool
+    options.true ? "True"
+  else
+    options.false ? ""
+
 init = ->
+  $("#collaboration_switch").iphoneSwitch(troolean($('#drawing').data('collaberation_on'), {true: "on", false: "off"}), ->
+    $.ajax(
+      url: "/presentations/#{$('#drawing').data('presentation')}"
+      data:
+        presentation:
+          collaberation_on: true
+      type: "put"
+    )
+  , ->
+    $.ajax(
+      url: "/presentations/#{$('#drawing').data('presentation')}"
+      data:
+        presentation:
+          collaberation_on: false
+      type: "put"
+    )
+  )
+
+  turn_collaberation(troolean($('#drawing').data('collaberation_on'), {true: "on", false: "off"}))
+
   $("#notice").delay(5000).slideUp(1000)
   Narwhal.examplePallet = Raphael("stroke_example", 100, 21)
   Narwhal.miniExamplePallet = Raphael("mini_stroke_example", 40, 11)
@@ -129,7 +166,10 @@ init = ->
   )
 
   channel.bind('collaberation_toggle', (data) ->
-
+    if data == true
+      turn_collaberation "on"
+    else
+      turn_collaberation "off"
   )
 
   channel.bind('survey_redirect', (data) ->

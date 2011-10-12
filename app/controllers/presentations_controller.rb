@@ -7,7 +7,7 @@ class PresentationsController < ApplicationController
   def index
   end
 
-  def show  
+  def show
     respond_to do |format|
       format.html
       format.json { render json: shapes }
@@ -28,5 +28,13 @@ class PresentationsController < ApplicationController
         format.html { redirect_to short_presentation_path(presentation), notice: "Welcome to your class room, share this url to start collaberating" }
       end
     end
+  end
+
+  def update
+    presentation.collaberation_on = params[:presentation][:collaberation_on]
+    if presentation.save
+      Pusher[presentation.permalink].trigger("collaberation_toggle", presentation.collaberation_on)
+    end
+    render nothing: true
   end
 end
