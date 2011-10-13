@@ -20,7 +20,7 @@ Narwhal.owns_presentation = presentation_cookie.search($('#drawing').data('prese
 
 
 palletHeight = $(window).height()-105
-palletWidth = $(window).width()-1
+palletWidth = $(window).width()-216
 
 eventMap =
   mousemove: "move",
@@ -83,7 +83,7 @@ touchDraw = (e) ->
 
 resizeCanvas = ->
   containerHeight = $(window).height()-105
-  containerWidth = $(window).width()-151
+  containerWidth = $(window).width()-216
 
   growth =
     height: containerHeight / Narwhal.size.height
@@ -101,9 +101,8 @@ resizeCanvas = ->
   leftOffset = 0 if leftOffset < 0
   $('#container').height(containerHeight)
     .width(containerWidth).css(
-      border: "1px solid red"
       background: '#C4C4C4'
-      left: 150
+      left: 215
       position: "relative"
     )
   $('#drawing').attr('height', palletHeight)
