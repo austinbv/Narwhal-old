@@ -28,7 +28,7 @@ body {
     left: 0px;
     z-index: 10;
   }
-  
+
   #live_canvas {
     left: 0px;
     position:absolute;
@@ -65,7 +65,7 @@ body {
     position: absolute;
     right: 30%;
     text-indent: -999px;
-    
+
     -webkit-transition: -webkit-transform .3s ease, box-shadow .3s ease;
     -moz-transition: -moz-transform .3s ease box-shadow .3s ease;
 
@@ -105,6 +105,20 @@ body {
       font-size: 20px;
       font-family: 'Yanone Kaffeesatz', sans-serif;
     }
+  }
+
+  #drawing {
+    border: 1px black solid;
+  }
+
+  #slides_container {
+    border: 1px solid black;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    bottom: 0px;
+    height: 100%;
+    width: 150px;
   }
 
   .tool_select {
@@ -163,7 +177,7 @@ body {
     left: 410px;
     top: 20px;
   }
-  
+
   #stroke_width_select {
     cursor: pointer;
     position: absolute;
@@ -181,13 +195,13 @@ body {
       background: #969696;
       border: #c6c6c6 1px solid;
     }
-    
+
     #mini_stroke_example {
       position: absolute;
       left: 15px;
       top: -1px;
     }
-    
+
     span {
       font-family: 'Yanone Kaffeesatz', sans-serif;
       font-size: 20px;

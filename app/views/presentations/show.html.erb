@@ -1,4 +1,5 @@
 <%=render 'tool_bar'%>
+<%=render 'slide_bar'%>
 <script type="text/javascript">
   $(document).ready(function () {
     $.getJSON("/presentations/<%=presentation.permalink%>", function (slide) {
@@ -8,7 +9,7 @@
 </script>
 
 <div id="container">
-  <canvas data-current-slide="<%=slide.id%>" data-collaberation_on="<%=presentation.collaberation_on %>" data-presentation="<%=presentation.permalink %>" id="drawing" height="608" width="810">
+  <canvas data-current-slide="<%=slide.id%>" data-collaberation_on="<%=presentation.collaberation_on %>" data-presentation="<%=presentation.permalink %>" id="drawing" height="600" width="800">
     <p>
       Your Browser Does Not Support HTML5 Please Upgrade for the sake of innovation
       <a href="http://www.google.com/chrome">Google Chrome</a>

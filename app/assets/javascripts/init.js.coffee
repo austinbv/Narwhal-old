@@ -1,7 +1,11 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-window.Narwhal = {}
+window.Narwhal =
+  size:
+    height: $(window).height()-105
+    width: $(window).width()-151
+
 css_offset =
   x: 1
   y: 1
@@ -78,11 +82,46 @@ touchDraw = (e) ->
     down = false
 
 resizeCanvas = ->
-  palletHeight = $(window).height()-105
-  palletWidth = $(window).width()-1
-  $('#drawing').attr('height', palletHeight).attr('width', palletWidth)
-  $('#live_canvas').height(palletHeight).width(palletWidth)
+  containerHeight = $(window).height()-105
+  containerWidth = $(window).width()-151
+
+  growth =
+    height: containerHeight / Narwhal.size.height
+    width: containerWidth / Narwhal.size.width
+
+  if containerWidth < containerHeight
+    palletWidth = containerWidth
+    palletHeight = ( 3 * palletWidth ) / 4
+    leftOffset = 0
+  else
+    palletHeight = containerHeight
+    palletWidth = ( 4 * palletHeight ) / 3
+    leftOffset = ( containerWidth / 2 ) - ( palletWidth / 2 )
+
+  leftOffset = 0 if leftOffset < 0
+  $('#container').height(containerHeight)
+    .width(containerWidth).css(
+      border: "1px solid red"
+      background: '#C4C4C4'
+      left: 150
+      position: "relative"
+    )
+  $('#drawing').attr('height', palletHeight)
+    .attr('width', palletWidth)
+    .css(
+      position: "absolute"
+      left: leftOffset
+    )
+  $('#live_canvas').height(palletHeight)
+    .width(palletWidth)
+    .css(
+      position: "absolute"
+      left: leftOffset
+    )
   Narwhal.liveCanvas.setSize(palletWidth, palletHeight)
+  Narwhal.size =
+    height: containerHeight
+    width: containerWidth
 
 strokeExample = (width) ->
   Narwhal.examplePallet.clear()
@@ -164,7 +203,7 @@ init = ->
   )
 
   channel.bind('squiggle_destroy_event', (data) ->
-    $("#id_#{data.hash}").get(0).raphael.remove()
+    $("#id_#{data.hash}").get(0)?.raphael.remove()
   )
 
   channel.bind('collaberation_toggle', (data) ->
