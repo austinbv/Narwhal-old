@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails'
 
 # Asset template engines
 gem 'sass-rails'
@@ -14,6 +14,8 @@ gem 'thin'
 gem 'jquery-rails'
 
 gem 'high_voltage'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 group :test, :development do
   # Pretty printed test output
