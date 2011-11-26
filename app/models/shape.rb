@@ -7,6 +7,15 @@ class Shape < ActiveRecord::Base
   before_create :build_hash
   
 # named_scope :all_upto, lambda { |created_at| { conditions: ["created_at < ?", created_at] } }
+  
+  def points_to_path
+    path = "M"
+    path << "#{points.first[1]["x"].to_i*0.25} #{points.first[1]["y"].to_i*0.25}"
+    points.each_value do |point|
+      path << "L#{point["x"].to_i*0.25} #{point["y"].to_i*0.25}"
+    end
+    path
+  end
 
   private
 

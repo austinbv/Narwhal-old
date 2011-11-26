@@ -1,0 +1,48 @@
+<div id="created_presentations" class="presentation_wrapper vertical">
+  Classrooms You Created
+  <div>
+    <% current_user.created_presentations.order("created_at DESC").each do |presentation| %>
+      <a href="<%=presentation_path(presentation)%>">
+        <div id="created_<%=presentation.permalink%>" data-permalink="<%= presentation.permalink%>" class="mini presentation"></div>
+      </a>
+      <script>
+        canvas = Raphael("created_<%=presentation.permalink%>", 200, 150)
+        <% presentation.slides.first.shapes.each do |shape| %>
+          canvas.path("<%=shape.points_to_path%>")
+        <%end%>
+      </script>
+    <% end %>
+  </div>
+</div>
+<div id="participated_presentations" class="presentation_wrapper vertical">
+  Classrooms you worked in
+  <div>
+    <% participated_presentations.each do |presentation| %>
+      <a href="<%=presentation_path(presentation)%>">
+        <div id="participated_<%=presentation.permalink%>" data-permalink="<%= presentation.permalink%>" class="mini presentation"></div>
+      </a>
+      <script>
+        canvas = Raphael("participated_<%=presentation.permalink%>", 200, 150)
+        <% presentation.slides.first.shapes.each do |shape| %>
+          canvas.path("<%=shape.points_to_path%>")
+        <%end%>
+      </script>
+    <% end %>
+  </div>
+</div>
+<div id="recent_presentations" class="presentation_wrapper horizontal">
+  Recent Presentations
+  <div>
+    <% recent_presentations.each do |presentation| %>
+      <a href="<%=presentation_path(presentation)%>">
+        <div id="recent_<%=presentation.permalink%>" data-permalink="<%= presentation.permalink%>" class="mini presentation"></div>
+      </a>
+      <script>
+        canvas = Raphael("recent_<%=presentation.permalink%>", 200, 150)
+        <% presentation.slides.first.shapes.each do |shape| %>
+          canvas.path("<%=shape.points_to_path%>")
+        <%end%>
+      </script>
+    <% end %>
+  </div>
+</div>

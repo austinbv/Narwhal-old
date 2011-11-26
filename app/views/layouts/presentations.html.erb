@@ -9,13 +9,10 @@
   <link href='http://fonts.googleapis.com/css?family=Schoolbell|Yanone+Kaffeesatz:200,400,700|Delius' rel='stylesheet' type='text/css'>
 
 </head>
-<body>
+<body id="presentations">
 
   <%= yield %>
 
-  <div id="ribbon" class="no_select">
-    <%= link_to "Take the Survey Now", survey_path %>
-  </div>
   <% if notice %>
     <div id="notice"><%= notice %></div>
   <% end %>

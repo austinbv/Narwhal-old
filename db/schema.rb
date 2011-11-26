@@ -11,13 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012021345) do
+ActiveRecord::Schema.define(:version => 20111125233537) do
 
   create_table "presentations", :force => true do |t|
     t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "collaberation_on", :default => true
+    t.integer  "creator_id"
+  end
+
+  create_table "presentations_users", :force => true do |t|
+    t.integer "user_id"
+    t.integer "presentation_id"
   end
 
   create_table "shapes", :force => true do |t|
@@ -39,6 +45,17 @@ ActiveRecord::Schema.define(:version => 20111012021345) do
     t.integer  "presentation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "google_uid"
+    t.text     "avatar_url"
   end
 
 end

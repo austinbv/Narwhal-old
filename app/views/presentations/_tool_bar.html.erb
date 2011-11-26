@@ -17,7 +17,7 @@
   </div>
   <% if presentation %>
     <div id="allow_collaberation_wrap">
-      <% if created_presentations.include? presentation.permalink %>
+      <% if presentation_owner%>
         <p>Collaboration</p>
         <div id="collaboration_switch"></div>
       <% else %>
@@ -30,8 +30,10 @@
     <% end %>
   <% end %>
   <div id="links">
-    <a href="#">Contact</a> |
-    <a href="#">Blog</a>
+    <% if current_user %>
+      Hello <%=current_user.first_name%>
+    <% end %>
+    <%= login_logout_link %>
   </div>
 </div>
 <div id="tool_pallet">

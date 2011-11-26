@@ -17,12 +17,7 @@ class PresentationsController < ApplicationController
   def create
     presentation = Presentation.new(params['presentation'])
     presentation.slides << Slide.new
-    if cookies[:created_presentations]
-      cookies[:created_presentations] += ",#{presentation.permalink}"
-    else
-      cookies[:created_presentations] = presentation.permalink
-    end
-
+    presentation.creator_id = current_user.id if current_user
     respond_to do |format|
       if presentation.save
         format.html { redirect_to short_presentation_path(presentation), notice: "Welcome to your class room, share this url to start collaborating" }

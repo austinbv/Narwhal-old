@@ -1,5 +1,5 @@
 module PresentationHelper
-  def created_presentations 
-    cookies[:created_presentations] ? cookies[:created_presentations].split(",") : []
+  def presentation_owner
+    presentation.creator == current_user
   end
 end
