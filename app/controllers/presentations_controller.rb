@@ -17,7 +17,7 @@ class PresentationsController < ApplicationController
   def create
     presentation = Presentation.new(params['presentation'])
     presentation.slides << Slide.new
-    presentation.creator_id = current_user.id if current_user
+    presentation.creator = current_user if current_user
     respond_to do |format|
       if presentation.save
         format.html { redirect_to short_presentation_path(presentation), notice: "Welcome to your class room, share this url to start collaborating" }
