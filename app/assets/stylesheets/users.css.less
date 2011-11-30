@@ -5,7 +5,7 @@
 body#users {
   background: #e8e8e8;
 
-  section#index-page {
+  section#index-page, section#new-page, section#show-page {
     #header {
       height: 120px;
       margin-top: 0px;
@@ -40,6 +40,26 @@ body#users {
     .row { 
       margin-top: 50px;
       margin-bottom: 50px;
+    }
+  }
+
+  section#show-page {
+    .presentation_wrapper {
+      height: 200px;
+      border: 2px inset #c4c4c4;
+      height: 200px;
+      overflow: auto;
+      white-space: nowrap;
+
+      div {
+        display: inline-block;
+      }
+    }
+
+    .mini.presentation {
+      display: inline-block;
+      white-space: nowrap;
+      background: #f4f4f4;
     }
   }
 }
