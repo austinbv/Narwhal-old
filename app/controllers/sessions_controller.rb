@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     if user
       @user = user
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Welcome #{@user.first_name}"
+      redirect_to user_path(@user), notice: "Welcome #{@user.first_name}"
     else
       @user = User.new(email: user_info['email'], first_name: user_info['first_name'], last_name: user_info['last_name'], google_uid: auth['uid'], avatar_url: user_info['image'])
-      render 'users/new'
+      render 'users/new', :layout => 'users'
     end
   end
 

@@ -15,10 +15,11 @@ class UsersController < ApplicationController
   def create
     user = User.create(params['user'])
     session[:user_id] = user.id
-    redirect_to root_path, notice: "Welcome #{user.name}\n your account has been created"
+    redirect_to user_path(current_user), notice: "Welcome #{user.name}\n your account has been created"
   end
 
   def new
+    @user = User.new
   end
 
   def update
