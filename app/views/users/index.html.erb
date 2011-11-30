@@ -4,10 +4,10 @@
       <div class="row">
         <a href="<%=root_path%>" id="logo" class="span4">Logo</a>
         <div id="button-wrapper" class="offset4 span8">
-          <%= form_tag presentations_path do %>
+          <%= form_tag presentations_path, :style => "display: inline-block;" do %>
             <%= submit_tag("Start A Classroom!", :class => "btn large primary") %>
           <% end %>
-          <%= form_tag signin_path do %>
+          <%= form_tag signin_path, :style => "display: inline-block;" do %>
             <%= submit_tag("Login/Signup\nAll you need is Google", :class => "btn large success") %>
           <% end %>
         </div>
