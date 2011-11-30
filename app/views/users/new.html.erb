@@ -1,8 +1,9 @@
-<%= form_for @user, :url => {controller: :users, action: :create} do |f| %>
+<%= form_for user, :url => {controller: :users, action: :create} do |f| %>
   <%= f.text_field :email %>
   <%= f.text_field :first_name %>
   <%= f.text_field :last_name %>
   <%= f.hidden_field :google_uid %>
+  <%= f.hidden_field :avatar_url
   <%= f.submit 'Create Account' %>
 <% end %>
-<%= image_tag @user.avatar_url %>
+<%= image_tag user.avatar_url %>
