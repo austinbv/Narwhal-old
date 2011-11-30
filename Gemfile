@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'less-rails-bootstrap'
 
 group :test, :development do
   # Pretty printed test output
