@@ -4,16 +4,12 @@
       <div class="row">
         <div id="logo" class="span4">Logo</div>
         <div id="button-wrapper" class="offset4 span8">
-          <a href='#' class="btn large primary">
-            Start A Classroom
-          </a>
-          <a href='#' class="btn large success">
-            <span class="middle">
-              Login/Signup
-              <br>
-              Google
-            </span>
-          </a>
+          <%= form_tag presentations_path do %>
+            <%= submit_tag("Start A Classroom!", :class => "btn large primary") %>
+          <% end %>
+          <%= form_tag signin_path do %>
+            <%= submit_tag("Login/Signup\nAll you need is Google", :class => "btn large success") %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -22,12 +18,10 @@
     <div id="main">
       <div class="row">
         <div class="span8">
-          <h2>Malesuada Egestas Etiam</h2>
-          <p>
-            Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </p>
+          <h1>A tool to Share, Collaborate, and Participate in Presentations and Art.  It's as easy as drawing right in your browser, and the best part is...</h1>
+          <h4>
+            It just works.
+          </h4>
         </div>
         <div class="span8">
           <img src="images/video-stub.png">
@@ -68,8 +62,10 @@
         </div>
       </div>
       <div id="footer" class="row">
-        <div id="footer-logo" class="span4">
-          Footer Logo
+        <div id="footer-logo-wrap" class="span4">
+          <div id="footer-logo">
+            Narwhal
+          </div>
         </div>
         <div class="span4">
           <h4>Ultricies</h4>
