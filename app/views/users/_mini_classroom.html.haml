@@ -1,0 +1,6 @@
+%a{ :href => presentation_path(mini_classroom) }
+  .mini.presentation{ :id => "created_#{mini_classroom.permalink}", :"data-permalink" => mini_classroom.permalink }
+  %script
+    canvas = Raphael("created_#{mini_classroom.permalink}", 200, 150)
+    - mini_classroom.slides.first.shapes.each do |shape|
+      canvas.path("#{shape.points_to_path}")

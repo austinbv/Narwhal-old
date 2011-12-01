@@ -1,0 +1,64 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap/mixins"; /* Use this to get all of Bootstrap's @mixins and $variables */
+@import "bootstrap/variables";
+body#users {
+  background: #e8e8e8;
+
+  #header {
+    height: 120px;
+    margin-top: 0px;
+    background: #b4b4b4;
+    @include gradientBar(#b4b4b4, #838383);
+
+    .row {
+      margin-top: 0px;
+    }
+
+    #button-wrapper {
+      margin-top: 10px;
+
+      .btn.large {
+        height: 100px;
+        padding: 0px;
+        margin-left: 25px;
+        width: 200px;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+
+    #logo {
+      height: 101px;
+      width: 210px;
+      background: url('/images/narwhal-logo.png');
+      text-indent: -9999px;
+    }
+  }
+
+  .row { 
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .presentation_wrapper {
+    height: 200px;
+    border: 2px inset #c4c4c4;
+    overflow: auto;
+    white-space: nowrap;
+
+    div {
+      display: inline-block;
+    }
+  }
+
+  .mini.presentation {
+    height: 150px;
+    width: 200px;
+    display: inline-block;
+    white-space: nowrap;
+    background: #f4f4f4;
+  }
+}

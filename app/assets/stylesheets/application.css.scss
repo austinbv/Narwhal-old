@@ -2,16 +2,13 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require 'twitter/bootstrap'
+ *= require vendor
  *= require_self
  *= require_tree . 
- *= require vendor
-*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
 */
 @import url(http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic);
+@import "bootstrap"; /* Use this to get all of Bootstrap's @mixins and $variables */
+
 * {
   font-family: 'Istok Web', sans-serif;
 }

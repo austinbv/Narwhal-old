@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "https://raw.github.com/DmitryBaranovskiy/raphael/master/raphael-min.js"
+  %body#users
+    #header
+      .container
+        .row
+          %a#logo.span4{ :href => root_path }
+          = yield :buttons
+    #main
+      .container
+        = yield

@@ -1,0 +1,33 @@
+.row
+  .span14.offset1
+    .row
+      .page-header
+        %h1 Classrooms You Created
+      #created_presentations.presentation_wrapper.span12.offset1
+        %div
+          - created = current_user.created_presentations.order("created_at DESC")
+          - if created.empty?
+            %h3
+              Awwwwww man you need to start some here
+          - else
+            = render :partial => 'mini_classroom', :collection => created
+    .row
+      .page-header
+        %h1
+          Classrooms you worked in
+      #participated_presentations.presentation_wrapper.span12.offset1
+        %div
+          - if participated_presentations.empty?
+            %h3 Maybe if you start sharing your knowledge some things will be here</h3>
+          - else
+            = render :partial => "mini_classroom", :collection => participated_presentations
+    .row
+      .page-header
+        %h1
+          Recent Classrooms others Created
+      #recent_presentations.presentation_wrapper.span12.offset1
+        %div
+          - if recent_presentations.empty?
+            %h3 This should really never be empy
+          - else
+            = render :partial => 'mini_classroom', :collection => recent_presentations

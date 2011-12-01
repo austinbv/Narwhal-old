@@ -1,0 +1,75 @@
+= content_for :buttons do
+  #button-wrapper.offset4.span8
+    = form_tag presentations_path, :style => "display: inline-block;" do
+      = submit_tag "Start A Classroom!", :class => "btn large primary"
+    = form_tag signin_path, :style => "display: inline-block" do
+      = submit_tag "Login/Signup\nAll you need is Google", :class => "btn large success"
+
+.row
+  .span8
+    %h1
+      A tool to Share, Collaborate, and Participate in Presentations and Art.  It's as easy as drawing right in your browser, and the best part is...
+    %h4
+      It just works.
+  .span8
+    %img{ :src => "images/video-stub.png" }
+.row
+  .span4
+    %img.thumbnail{ :src => "http://placehold.it/210x150" }
+  .span4
+    %img.thumbnail{ :src => "http://placehold.it/210x150" }
+  .span4
+    %img.thumbnail{ :src => "http://placehold.it/210x150" }
+  .span4
+    %img.thumbnail{ :src => "http://placehold.it/210x150" }
+.row
+  .span-one-third
+    %h3 Manga
+    %p
+      Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+  .span-one-third
+    %h3 Sollicitudin
+    %p
+      Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+  .span-one-third
+    %h3 Porta
+    %p
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper.
+
+#footer.row
+  #footer-logo-wrap.span4
+    #footer-logo
+      Narwhal
+  .span4
+    %h4 Nibh
+    %ul.unstyled
+      %li
+        Ornare
+      %li
+        Cursus Pellentesque
+      %li
+        Pellentesque Vestibulum Condimentum
+      %li
+        Tellus
+  .span4
+    %h4 Nibh
+    %ul.unstyled
+      %li
+        Ornare
+      %li
+        Cursus Pellentesque
+      %li
+        Pellentesque Vestibulum Condimentum
+      %li
+        Tellus
+  .span4
+    %h4 Nibh
+    %ul.unstyled
+      %li
+        Ornare
+      %li
+        Cursus Pellentesque
+      %li
+        Pellentesque Vestibulum Condimentum
+      %li
+        Tellus
