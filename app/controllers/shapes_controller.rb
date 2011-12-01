@@ -14,7 +14,7 @@ class ShapesController < ApplicationController
   def create
     shape = Shape.new(params[:shape])
     slide.shapes << shape
-    if !slide.presentation.users.include? current_user
+    if !slide.presentation.users.include?(current_user) && current_user
       slide.presentation.users << current_user
     end
     if slide.save
