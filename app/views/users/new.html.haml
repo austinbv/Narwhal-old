@@ -1,36 +1,37 @@
 #signup-wrapper
   .row
-    .row
-      .span6.offset1
-        = form_for @user, :class => "form-stacked", :url => {:controller => :users, :action => :create } do |f|
-          %fieldset
-            #clearfix
-            %label Avatar
-            .input
-              = image_tag @user.avatar_url
-            .input
-              = f.text_field :email, :disabled => true, :placeholder => @user.email, :class => "xlarge disabled"
-            = f.label :first_name
-            .input
-              = f.text_field :first_name, :class => "xlarge"
-            = f.label :last_name
-            .input
-              = f.text_field :last_name, :class => "xlarge"
-            = f.hidden_field :google_uid
-            = f.hidden_field :email
-            = f.hidden_field :avatar_url
-            .input
-              = f.submit 'Create Your Account', :class => "btn large success"
-      .span6.offset3
-        #signup-copy
-          %h3
-            After you have an account
-          %h4
-            You can...
-          %ul.unstyled
-            %li
-              Save Presentations
-            %li
-              Upload Powerpoints
-            %li
-              See Every Presentation you Have Worked In
+    .span6
+      = form_for @user, :url => {:controller => :users, :action => :create } do |f|
+        %fieldset
+          #clearfix
+          %label Avatar
+          .input
+            = image_tag @user.avatar_url
+          %label{:for => :email }
+            Email
+          .input
+            = f.text_field :email, :disabled => true, :placeholder => @user.email, :class => "xlarge disabled"
+          = f.label :first_name
+          .input
+            = f.text_field :first_name, :class => "xlarge"
+          = f.label :last_name
+          .input
+            = f.text_field :last_name, :class => "xlarge"
+          = f.hidden_field :google_uid
+          = f.hidden_field :email
+          = f.hidden_field :avatar_url
+          .input
+            = f.submit 'Create Your Account', :class => "btn large success"
+    .span6.offset2
+      #signup-copy
+        %h3
+          After you have an account
+        %h4
+          You can...
+        %ul.unstyled
+          %li
+            Save Presentations
+          %li
+            Upload Powerpoints
+          %li
+            See Every Presentation you Have Worked In

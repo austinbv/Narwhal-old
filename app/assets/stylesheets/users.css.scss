@@ -61,4 +61,21 @@ body#users {
     white-space: nowrap;
     background: #f4f4f4;
   }
+
+  #footer {
+    background: #dadada;
+    margin-bottom: 0px;
+
+    #footer-logo {
+      background: url('/images/narwhal-flipped-logo.png');
+      width: 176px;
+      height: 147px;
+      text-indent: -999px;
+    }
+  }
+
+  #signup-wrapper .row {
+    border: 30px solid #cecece;
+    padding: 20px 0 20px 0;
+  }
 }
