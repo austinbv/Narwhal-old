@@ -2,7 +2,12 @@
 <%=render 'slide_bar'%>
 <script type="text/javascript">
   $(document).ready(function () {
-    $.getJSON("/presentations/<%=presentation.permalink%>", function (slide) {
+    <% if slide %>
+      url = '<%= presentation_slide_path(presentation, slide, :json) %>'
+    <% else %>
+      url = '<%= presentations_path(presentation, :json) %>'
+    <% end %>
+    $.getJSON(url, function (slide) {
       Narwhal.runShapes(slide)
     });
   });

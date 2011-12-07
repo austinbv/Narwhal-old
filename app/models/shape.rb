@@ -8,11 +8,11 @@ class Shape < ActiveRecord::Base
   
 # named_scope :all_upto, lambda { |created_at| { conditions: ["created_at < ?", created_at] } }
   
-  def points_to_path
+  def points_to_path(scale = 0.25)
     path = "M"
-    path << "#{points.first[1]["x"].to_i*0.25} #{points.first[1]["y"].to_i*0.25}"
+    path << "#{points.first[1]["x"].to_i*scale} #{points.first[1]["y"].to_i*scale}"
     points.each_value do |point|
-      path << "L#{point["x"].to_i*0.25} #{point["y"].to_i*0.25}"
+      path << "L#{point["x"].to_i*scale} #{point["y"].to_i*scale}"
     end
     path
   end

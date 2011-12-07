@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     user.presentations - user.created_presentations
   end
   expose(:recent_presentations) do
-    Presentation.where("updated_at > ?", 8.days.ago).limit(10).order("updated_at DESC").all - participated_presentations
+    Presentation.where("updated_at > ?", 8.days.ago).limit(10).order("updated_at DESC").all - user.presentations
   end
 
   def index

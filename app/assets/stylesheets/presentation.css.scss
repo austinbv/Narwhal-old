@@ -104,14 +104,25 @@ body#presentations {
     }
   }
 
-  #slides_container {
+  #side_bar {
+    overflow: none;
     border: 1px solid black;
     position: absolute;
     left: 0px;
     top: 100px;
     bottom: 0px;
-    height: 100%;
     width: 215px;
+
+    .mini.slide {
+      background: #f4f4f4;
+      height: 75px;
+      width: 100px;
+      margin: 10px;
+
+      svg {
+        background: #f4f4f4;
+      }
+    }
   }
 
   .tool_select {

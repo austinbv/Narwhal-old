@@ -1,3 +1,6 @@
+$ ->
+  $('#side_bar').accordion {fillSpace: true}
+
 class Narwhal.Presentation
   constructor: (@name = @generateName(5)) ->
     @slides.push(new Slide())

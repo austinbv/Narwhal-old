@@ -1,0 +1,5 @@
+= link_to "", presentation_slide_path(presentation, slide), :class => "mini slide", :id => "created_#{slide.id}", :"data-permalink" => slide.id
+%script
+  canvas = Raphael("created_#{slide.id}", 100, 75)
+  - slide.shapes.each do |shape|
+    canvas.path("#{shape.points_to_path(0.125)}")
