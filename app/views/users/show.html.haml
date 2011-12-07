@@ -1,3 +1,8 @@
+= content_for :buttons do
+  #button-wrapper.offset6.span4
+    = form_tag presentations_path, :style => "display: inline-block;" do
+      = submit_tag "Start A Classroom!", :class => "btn large primary"
+
 .row
   .span14.offset1
     .row
