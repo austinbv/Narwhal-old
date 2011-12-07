@@ -184,7 +184,7 @@ init = ->
   $("#stroke_width_select").click( ->
     $("#tool_pallet").slideToggle('slow')
   )
-
+  Narwhal.refresh_slides = -> $('#slides_container').load(window.href + ' #slides_container')
   Narwhal.liveCanvas = Raphael("live_canvas", palletWidth, palletHeight)
   resizeCanvas()
   changeTool()
@@ -199,6 +199,10 @@ init = ->
     shape = new Narwhal.Squiggle()
     shape.addPointsBlob(data.points)
       .draw("#{data.hash}", data.stroke_width)
+  )
+
+  channel.bind('slide_create_event', ->
+    $('#slides_container').load(window.href + ' #slides_container *')
   )
 
   channel.bind('squiggle_destroy_event', (data) ->

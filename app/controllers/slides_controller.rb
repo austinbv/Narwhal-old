@@ -15,7 +15,7 @@ class SlidesController < PresentationsController
     slide = Slide.new
     presentation.slides << slide
     if presentation.save
-      Pusher[presentation.permalink].trigger("#slide_create_event", nil)
+      Pusher[presentation.permalink].trigger("slide_create_event", nil)
     end
     redirect_to presentation_slide_path(presentation, slide)
   end
